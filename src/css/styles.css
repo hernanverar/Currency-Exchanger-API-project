@@ -1,3 +1,18 @@
 body {
-  background-color: rgb(197, 249, 243);
+  background-color: rgb(172, 227, 217);
+  width: 90%;
+  margin: 25% 25% 25% 25%;
+}
+
+.button {
+  left: 50%;
+  top: auto;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(215, 126, 141);
+  font-size: xx-large;
+  font-style: italic;
+  font-variant: small-caps;
 }

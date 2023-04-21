@@ -5,5 +5,25 @@
 </head>
 <body>
   <h1>Currency Exchange Project</h1>
+  <div class="container">
+    <h1>Current exchange rates!</h1>
+    <p>To see a list of code you need   to exchange your dollars click <a href="https://www.iban.com/currency-codes">here</a></p>
+
+    <form>
+      <label for="usDollar">USD$</label>
+      <input id="usDollar" type="text" name="usDollar" placeholder="0.00">
+      <br>
+      <br>
+      <label for="exchangeToCurrency">Exchange to:</label>
+      <input id="exchangeToCurrency" type="text" name="exchangeToCurrency" placeholder="enter your code">
+      <br>
+      <br>
+      <button type="submit" class="button" id="exchange">Exchange!</button>
+    </form>
+
+    <div id="display">
+    <p id="displayExchange"></p>
+  </div>
+
 </body>
 </html>
