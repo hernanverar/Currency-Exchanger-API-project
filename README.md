@@ -1,6 +1,6 @@
 Currency Exchanger.
 
-Project Description: Create a currency exchange application where our users can type an amount in US dollars and choose type of currency they would like to convert their dollars to.
+Project Description: Create a currency exchange application where our users can type an amount in US dollars, and choose type of currency they would like to convert their dollars to any currency by using the link provided, choose and submit their currency code.
 
 BY: Hernan Verar
 
