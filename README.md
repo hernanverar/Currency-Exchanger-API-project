@@ -17,14 +17,14 @@ Description;
   Building the project using webpack with; 
  ## $ npm run build 
  Starting a development server with;
- ## $ npm run start 
+ ## $ npm run start:dev
  Linting JS files in the src folder with;
  ## $ npm run lint 
  Running tests with Jest using;
  ## $ npm run test
 
  Known Bugs;
-
+ None
 
  License;
  MIT License

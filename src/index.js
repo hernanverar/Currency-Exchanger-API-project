@@ -1,39 +1,37 @@
-import './css/styles.css';
-import  ExchangeService from './exchange.js';
-  
-  //Business Logic
+import "./css/styles.css";
+import ExchangeService from "./exchange.js";
 
-function getExchange(exchangeCurrency, dollarAmmount) {
-  ExchangeService.ExchangeService(exchangeCurrency, dollarAmmount)
-  .then(function(exchangeResponse) {
-    if (exchangeResponse instanceof Errror) {
-      const errorMessage = `there was a problem accessing the exchange data for ${exchangeResponse.message};`
-      throw new Error(errorMessage);
-    }
-  })
+//Business Logic
 
+const convertCurrency = (exchangeCurrencyRate, dollarAmmount) => {
+  return (exchangeCurrencyRate*dollarAmmount).toFixed(0);
+};
+
+async function getExchange(exchangeCurrency, dollarAmmount) {
+  const rates = await ExchangeService.getRate();
+  if(!rates.conversion_rates[exchangeCurrency]){
   }
-
+  // console.log(rates.conversion_rates[exchangeCurrency]);
+  return convertCurrency(rates.conversion_rates[exchangeCurrency], dollarAmmount);
+}
 
 //UI logic
 
-
-function errorMessage(error) {
-  document.querySelector('#displayExchange').setAttribute("class", "error");
-  document.querySelector('#displayExchange').innerText = `There was an error accessing the exchange data: ${error[0].status}: ${error[0].response}`;
-}
-
-function handleFormSubmission(e) {
+async function handleFormSubmission(e) {
   e.preventDefault();
-  document.querySelector('#displayExchange').innerText = null;
-  document.querySelector('#displayExchange').removeAttribute("class");
+
+  const amountToConvert = document.getElementById("usDollar").value;
+  const currencyCode = document.getElementById("exchangeToCurrency").value;
+  const convertedCurrencyAmount = await getExchange(currencyCode,amountToConvert);
+
+  // console.log("converted currency amount", convertedCurrencyAmount);
+
+  document.querySelector("#displayExchange").innerText = `${amountToConvert} USD is equal to ${convertedCurrencyAmount} ${currencyCode}`;
+  document.querySelector("#displayExchange").removeAttribute("class");
 }
 
-window.addEventListener("load", function() {
-  document.querySelector('form').addEventListener("submit", handleFormSubmission);
+window.addEventListener("load", function () {
+  document
+    .querySelector("form")
+    .addEventListener("submit", handleFormSubmission);
 });
-
-
-
-
-
